@@ -11,11 +11,13 @@ class EvenNumbers:
         return self
 
     def __next__(self):
+        if self.start % 2 == 0:
+            self.cont = self.start
+        elif not self.start % 2 == 0:
+            self.start += 1
+            self.cont = self.start
         if self.start > self.end:
             raise StopIteration
-        elif self.start % 2 == 0:
-            self.cont = self.start
-            self.start += 1
         self.start += 1
         return self.cont
 
